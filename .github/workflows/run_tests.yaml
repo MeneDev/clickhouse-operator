@@ -87,7 +87,7 @@ jobs:
           else
             ONLY="*"
           fi
-          ONLY="test-016-settings-07"
+          ONLY="*Add a change to an existing xml file*"
 
           if [[ "${{ github.event.inputs.test_mode }}" == 'Run all' ]]
           then
