@@ -737,7 +737,7 @@ def test_011_1(self):
                 "select 'OK'",
                 host="chi-test-011-secured-cluster-default-1-0",
                 user="user1",
-                pwd="top%secret2",
+                pwd="l%XubpKqz2y!QsKlsynEEE6#Thknj&fG",
             )
             assert out == "OK"
 
