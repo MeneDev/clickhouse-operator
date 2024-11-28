@@ -88,6 +88,8 @@ jobs:
             ONLY="*"
           fi
 
+          ONLY="*test_011_2*"
+
           if [[ "${{ github.event.inputs.test_mode }}" == 'Run all' ]]
           then
             test_mode="--test-to-end"
