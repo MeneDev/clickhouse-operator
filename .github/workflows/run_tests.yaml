@@ -83,17 +83,15 @@ jobs:
 
           if [[ "${{ github.event.inputs.test_mask }}" != '' ]]
           then
-            ONLY="test_mask"
+            ONLY="${{ github.event.inputs.test_mask }}"
           else
             ONLY="*"
           fi
-          ONLY="*Add a change to an existing xml file*"
 
           if [[ "${{ github.event.inputs.test_mode }}" == 'Run all' ]]
           then
             test_mode="--test-to-end"
           fi
-          test_mode="--test-to-end"
 
           ~/venv/qa/bin/python3 ./tests/regression.py --only=/regression/e2e.test_operator/${ONLY} $test_mode --trim-results on -o short --native --log ./tests/raw.log
           test_result=$?

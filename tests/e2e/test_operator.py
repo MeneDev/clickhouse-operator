@@ -737,7 +737,7 @@ def test_011_1(self):
                 "select 'OK'",
                 host="chi-test-011-secured-cluster-default-1-0",
                 user="user1",
-                pwd="topsecret",
+                pwd="top%secret",
             )
             assert out == "OK"
 
@@ -1902,10 +1902,24 @@ def test_016(self):
             assert out == "test-changed"
 
     # test-016-settings-06.yaml
-    with When("Add I change a number of settings that does not requre a restart"):
+    with When("Add I change a number of settings that does not require a restart"):
         start_time = kubectl.get_field("pod", f"chi-{chi}-default-0-0-0", ".status.startTime")
         kubectl.create_and_check(
             manifest="manifests/chi/test-016-settings-06.yaml",
+            check={
+                "do_not_delete": 1,
+            },
+        )
+
+        with And("ClickHouse SHOULD NOT BE restarted"):
+            new_start_time = kubectl.get_field("pod", f"chi-{chi}-default-0-0-0", ".status.startTime")
+            assert start_time == new_start_time
+
+    # test-016-settings-07.yaml
+    with When("Add I change a number of settings that does not require a restart"):
+        start_time = kubectl.get_field("pod", f"chi-{chi}-default-0-0-0", ".status.startTime")
+        kubectl.create_and_check(
+            manifest="manifests/chi/test-016-settings-07.yaml",
             check={
                 "do_not_delete": 1,
             },
