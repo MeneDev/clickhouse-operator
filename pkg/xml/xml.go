@@ -15,7 +15,6 @@
 package xml
 
 import (
-	"encoding/xml"
 	"fmt"
 	"io"
 	"regexp"
@@ -255,5 +254,6 @@ func (n *xmlNode) writeTag(w io.Writer, indent uint8, attributes string, openTag
 
 // writeValue prints XML value into io.Writer
 func (n *xmlNode) writeValue(w io.Writer, value string) {
-	xml.EscapeText(w, []byte(value))
+	util.Fprintf(w, "%s", value)
+	//xml.EscapeText(w, []byte(value))
 }

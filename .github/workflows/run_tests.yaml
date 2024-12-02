@@ -88,7 +88,7 @@ jobs:
             ONLY="*"
           fi
 
-          ONLY="*test_011_1*"
+          ONLY="*test_016*"
 
           if [[ "${{ github.event.inputs.test_mode }}" == 'Run all' ]]
           then

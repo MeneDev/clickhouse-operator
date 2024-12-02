@@ -17,7 +17,7 @@ spec:
     users:
       user2/profile: default
       user2/quota: default
-      user2/password: l%XubpKqz2y!QsKlsynEEE6#Thknj&fG
+      user2/password: needs<Xml&escaping # test for xml-special characters
       user2/networks/ip: "::/0"
     settings:
       macros/layer: "03"
