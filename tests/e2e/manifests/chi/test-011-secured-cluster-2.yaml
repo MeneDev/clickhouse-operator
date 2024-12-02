@@ -18,7 +18,7 @@ spec:
         - 127.0.0.2
 
       # user1 with a password
-      user1/password: l%XubpKqz2y!QsKlsynEEE6#Thknj&fG
+      user1/password: topsecret
       user1/networks/ip: "::/0"
 
       # user2 should get default password automatically
