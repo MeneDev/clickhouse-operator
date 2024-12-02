@@ -36,7 +36,7 @@ def launch(command, ok_to_fail=False, ns=None, timeout=600, shell=None):
 
     # save command for debug purposes
     # command = cmd
-    # print(f"run command: {cmd}")
+    print(f"run command: {cmd}")
 
     return run_shell(cmd, timeout, ok_to_fail, shell=shell)
 
