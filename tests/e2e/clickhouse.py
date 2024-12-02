@@ -24,7 +24,7 @@ def query(
             pod_name = p
             break
 
-    pwd_str = "" if pwd == "" else f"--password={pwd}"
+    pwd_str = "" if pwd == "" else f"--password={shlex.quote(pwd)}"
     user_str = "" if user == "" else f"--user={user}"
 
     if with_error:
