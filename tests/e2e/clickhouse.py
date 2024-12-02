@@ -1,3 +1,4 @@
+import shlex
 import e2e.kubectl as kubectl
 import e2e.settings as settings
 from testflows.core import *
