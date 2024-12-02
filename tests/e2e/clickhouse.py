@@ -1,7 +1,7 @@
+import shlex
 import e2e.kubectl as kubectl
 import e2e.settings as settings
 from testflows.core import *
-
 
 def query(
     chi_name,
@@ -24,7 +24,7 @@ def query(
             pod_name = p
             break
 
-    pwd_str = "" if pwd == "" else f"--password={pwd}"
+    pwd_str = "" if pwd == "" else shlex.quote(f"--password={pwd}")
     user_str = "" if user == "" else f"--user={user}"
 
     if with_error:
