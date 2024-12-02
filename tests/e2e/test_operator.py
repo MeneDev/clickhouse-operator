@@ -1821,7 +1821,7 @@ def test_016(self):
             version_user1 = clickhouse.query_with_error(chi, sql="select version()", user="user1", pwd="qwerty")
             assert version != version_user1
         with And("user2 user should be available"):
-            version_user2 = clickhouse.query(chi, sql="select version()", user="user2", pwd="qwerty")
+            version_user2 = clickhouse.query(chi, sql="select version()", user="user2", pwd="needs<Xml&escaping")
             assert version == version_user2
         with And("ClickHouse SHOULD NOT be restarted"):
             new_start_time = kubectl.get_field("pod", f"chi-{chi}-default-0-0-0", ".status.startTime")
